@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <properties resource="mybatis/dbconfig.properties"/>
+
+    <typeAliases>
+        <typeAlias alias = "Person" type = "com.kazachka.addressbook.model.Person"/>
+    </typeAliases>
+
+    <environments default = "environment">
+        <environment id = "environment">
+            <transactionManager type = "JDBC"/>
+
+            <dataSource type = "POOLED">
+                <property name = "driver" value = "${db.driver}"/>
+                <property name = "url" value = "${db.url}"/>
+                <property name = "username" value = "${db.username}"/>
+                <property name = "password" value = "${db.password}"/>
+            </dataSource>
+
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource = "mybatis/mappers/Person.xml"/>
+    </mappers>
+
+</configuration>
